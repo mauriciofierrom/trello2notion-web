@@ -1,25 +1,33 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <section className="hero is-fullheight">
+
+      <div className="hero-body">
+        <div className="container has-text-centered">
+          <p className="title">Trello2Notion</p>
+          <p className="subtitle">Convert Trello &#8482; JSON exports</p>
+
+          <div className="container columns">
+            <div className="column"/>
+            <div className="column">
+              <i className="bi-markdown"></i><p>Markdown</p>
+            </div>
+            <div className="column">
+              <i className="bi-markdown"></i><p>Notion</p>
+            </div>
+            <div className="column"/>
+          </div>
+        </div>
+
+        
+      </div>
+
+      <div className="hero-foot">
+        Copyright &copy; Mauicio Fierro
+      </div>
+    </section>
   );
 }
 
