@@ -1,0 +1,12 @@
+on:
+  workflow_call:
+  
+jobs:
+  Test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install deps
+        run: npm install
+      - name: Test
+        run: npm test -- --watchAll=false

@@ -7,7 +7,7 @@ function App() {
       <div className="hero-body">
         <div className="container has-text-centered">
           <p className="title">Trello2Notion</p>
-          <p className="subtitle">Convert Trello &#8482; JSON exports</p>
+          <p className="subtitle">Convert Trello &#8482; JSON exports - this text is new</p>
 
           <div className="container columns">
             <div className="column"/>
