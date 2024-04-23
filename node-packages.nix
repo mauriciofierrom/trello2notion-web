@@ -49,6 +49,15 @@ let
         sha512 = "P+ZygBLZtkp0qqOAJJVX4oX/sFo5JR3eBWwwuqHHhK0GIgQOKWrAfiAaWX0aArHkRWHMuggFEgAZNxVPwPZYaA==";
       };
     };
+    "@authgear/web-2.8.0" = {
+      name = "_at_authgear_slash_web";
+      packageName = "@authgear/web";
+      version = "2.8.0";
+      src = fetchurl {
+        url = "https://registry.npmjs.org/@authgear/web/-/web-2.8.0.tgz";
+        sha512 = "0/eQOrbs5pzy4O3H0tEieElj7y8pTFCHDBAb4beYfYOAjcFUm65NgU+6CfF5unfJGcHe746+SRSfW6zgymByWw==";
+      };
+    };
     "@babel/code-frame-7.24.2" = {
       name = "_at_babel_slash_code-frame";
       packageName = "@babel/code-frame";
@@ -1712,6 +1721,15 @@ let
       src = fetchurl {
         url = "https://registry.npmjs.org/@pmmmwh/react-refresh-webpack-plugin/-/react-refresh-webpack-plugin-0.5.11.tgz";
         sha512 = "7j/6vdTym0+qZ6u4XbSAxrWBGYSdCfTzySkj7WAFgDLmSyWlOrWvpyzxlFh5jtw9dn0oL/jtW+06XfFiisN3JQ==";
+      };
+    };
+    "@remix-run/router-1.15.3" = {
+      name = "_at_remix-run_slash_router";
+      packageName = "@remix-run/router";
+      version = "1.15.3";
+      src = fetchurl {
+        url = "https://registry.npmjs.org/@remix-run/router/-/router-1.15.3.tgz";
+        sha512 = "Oy8rmScVrVxWZVOpEF57ovlnhpZ8CCPlnIIumVcV9nFdiSIrus99+Lw78ekXyGvVDlIsFJbSfmSovJUhCWYV3w==";
       };
     };
     "@rollup/plugin-babel-5.3.1" = {
@@ -9112,6 +9130,24 @@ let
         sha512 = "F27qZr8uUqwhWZboondsPx8tnC3Ct3SxZA3V5WyEvujRyyNv0VYPhoBg1gZ8/MV5tubQp76Trw8lTv9hzRBa+A==";
       };
     };
+    "react-router-6.22.3" = {
+      name = "react-router";
+      packageName = "react-router";
+      version = "6.22.3";
+      src = fetchurl {
+        url = "https://registry.npmjs.org/react-router/-/react-router-6.22.3.tgz";
+        sha512 = "dr2eb3Mj5zK2YISHK++foM9w4eBnO23eKnZEDs7c880P6oKbrjz/Svg9+nxqtHQK+oMW4OtjZca0RqPglXxguQ==";
+      };
+    };
+    "react-router-dom-6.22.3" = {
+      name = "react-router-dom";
+      packageName = "react-router-dom";
+      version = "6.22.3";
+      src = fetchurl {
+        url = "https://registry.npmjs.org/react-router-dom/-/react-router-dom-6.22.3.tgz";
+        sha512 = "7ZILI7HjcE+p31oQvwbokjk6OA/bnFxrhJ19n82Ex9Ph8fNAq+Hm/7KchpMGlTgWhUxRHMMCut+vEtNpWpowKw==";
+      };
+    };
     "react-scripts-5.0.1" = {
       name = "react-scripts";
       packageName = "react-scripts";
@@ -11373,6 +11409,7 @@ let
       sources."@adobe/css-tools-4.3.3"
       sources."@alloc/quick-lru-5.2.0"
       sources."@ampproject/remapping-2.3.0"
+      sources."@authgear/web-2.8.0"
       sources."@babel/code-frame-7.24.2"
       sources."@babel/compat-data-7.24.4"
       (sources."@babel/core-7.24.4" // {
@@ -11635,6 +11672,7 @@ let
       sources."@nodelib/fs.walk-1.2.8"
       sources."@pkgjs/parseargs-0.11.0"
       sources."@pmmmwh/react-refresh-webpack-plugin-0.5.11"
+      sources."@remix-run/router-1.15.3"
       sources."@rollup/plugin-babel-5.3.1"
       sources."@rollup/plugin-node-resolve-11.2.1"
       sources."@rollup/plugin-replace-2.4.2"
@@ -12674,6 +12712,8 @@ let
       sources."react-error-overlay-6.0.11"
       sources."react-is-17.0.2"
       sources."react-refresh-0.11.0"
+      sources."react-router-6.22.3"
+      sources."react-router-dom-6.22.3"
       sources."react-scripts-5.0.1"
       sources."read-cache-1.0.0"
       sources."readable-stream-3.6.2"
