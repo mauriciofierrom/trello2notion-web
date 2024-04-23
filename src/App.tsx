@@ -1,33 +1,23 @@
 import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import UserContextProvider from './UserProvider';
+import Home from './home';
+import Root from './root';
+import AuthRedirect from './AuthRedirect';
 
 function App() {
+
   return (
-    <section className="hero is-fullheight">
-
-      <div className="hero-body">
-        <div className="container has-text-centered">
-          <p className="title">Trello2Notion</p>
-          <p className="subtitle">Convert Trello &#8482; JSON exports - this text is new</p>
-
-          <div className="container columns">
-            <div className="column"/>
-            <div className="column">
-              <i className="bi-markdown"></i><p>Markdown</p>
-            </div>
-            <div className="column">
-              <i className="bi-markdown"></i><p>Notion</p>
-            </div>
-            <div className="column"/>
-          </div>
-        </div>
-
-        
-      </div>
-
-      <div className="hero-foot">
-        Copyright &copy; Mauicio Fierro
-      </div>
-    </section>
+    <UserContextProvider>
+      <Router>
+        <Routes>
+          <Route path="/auth-redirect" element={<AuthRedirect />}/>
+          <Route element={<Root />}>
+            <Route path="/" element={<Home/>}></Route>
+          </Route>
+        </Routes>
+      </Router>
+    </UserContextProvider>
   );
 }
 
