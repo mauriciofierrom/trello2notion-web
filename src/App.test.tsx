@@ -1,6 +1,7 @@
-import React from 'react';
 import { render, screen } from '@testing-library/react';
 import App from './App';
+import { UserContext } from './UserProvider';'./UserProvider';
+import Home from './home';
 
 test('renders Title', () => {
   render(<App />);
@@ -12,4 +13,26 @@ test('contains footer with copyright notice', () => {
   render(<App/>);
   const copyrightElement = screen.getByText(/Copyright/i);
   expect(copyrightElement).toBeInTheDocument();
+})
+
+describe('with a logged in user', () => {
+  test('shows the email of the logged in user', () => {
+    render(
+      <UserContext.Provider value={{ isLoggedIn: true, email: 'some@some.com'}}>
+        <Home/>
+      </UserContext.Provider>
+    );
+    const email = screen.getByText(/some@some.com/i);
+    expect(email).toBeInTheDocument();
+  })
+
+  test('shows the logout link', () => {
+    const { getByRole } = render(
+      <UserContext.Provider value={{ isLoggedIn: true, email: 'some@some.com'}}>
+        <Home/>
+      </UserContext.Provider>
+    );
+
+    getByRole('button', { name: /logout/i });
+  })
 })
