@@ -5,11 +5,12 @@ import Login from './login';
 
 const Home: React.FC = () => {
   const { isLoggedIn, email } = useContext(UserContext)
+  const { REACT_APP_BASE_URL } = process.env
 
   const logout = useCallback(() => {
     authgear
       .logout({
-        redirectURI: "http://localhost:4000/",
+        redirectURI: `${REACT_APP_BASE_URL}/`,
       })
       .then(
         () => {

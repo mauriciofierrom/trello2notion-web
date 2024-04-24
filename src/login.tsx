@@ -3,12 +3,12 @@ import React, { useCallback } from 'react';
 import authgear, { PromptOption } from '@authgear/web';
 
 const Login: React.FC = () => {
+  const { REACT_APP_BASE_URL } = process.env;
+  console.log(REACT_APP_BASE_URL);
   const startLogin = useCallback(() => {
-    console.log("hey");
-
     authgear
       .startAuthentication({
-        redirectURI: 'http://localhost:4000/auth-redirect',
+        redirectURI: `${REACT_APP_BASE_URL}/auth-redirect`,
         prompt: PromptOption.Login
       })
       .then(
