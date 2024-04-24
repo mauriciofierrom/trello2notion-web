@@ -1,0 +1,8 @@
+name: PR test flow
+on:
+  push:
+    branches-ignore:
+      - main
+jobs:
+  Test:
+    uses: ./.github/workflows/test.yaml
