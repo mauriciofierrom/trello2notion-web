@@ -2,6 +2,7 @@ import { render, screen } from "@testing-library/react";
 import App from "./App";
 import { UserContext } from "./UserProvider";
 import Home from "./home";
+import { BrowserRouter } from "react-router-dom";
 
 test("renders Title", () => {
   render(<App />);
@@ -21,7 +22,9 @@ describe("with a logged in user", () => {
       <UserContext.Provider
         value={{ isLoggedIn: true, email: "some@some.com" }}
       >
-        <Home />
+        <BrowserRouter>
+          <Home />
+        </BrowserRouter>
       </UserContext.Provider>,
     );
     const email = screen.getByText(/some@some.com/i);
@@ -33,7 +36,9 @@ describe("with a logged in user", () => {
       <UserContext.Provider
         value={{ isLoggedIn: true, email: "some@some.com" }}
       >
-        <Home />
+        <BrowserRouter>
+          <Home />
+        </BrowserRouter>
       </UserContext.Provider>,
     );
 
