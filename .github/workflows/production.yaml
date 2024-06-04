@@ -3,6 +3,7 @@ env:
   VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
   VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
   REACT_APP_BASE_URL: https://trello2notion-web.vercel.app
+  REACT_APP_ENTRYPOINT_URL: https://us-central1-trello2notion.cloudfunctions.net/rate-limiter
 on:
   push:
     branches:
