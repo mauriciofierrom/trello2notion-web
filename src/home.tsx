@@ -20,7 +20,7 @@ const Home: React.FC = () => {
           console.error(err);
         }
     );
-  }, []);
+  }, [REACT_APP_BASE_URL]);
 
   return (isLoggedIn ?
   <>

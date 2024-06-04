@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import App from './App';
-import { UserContext } from './UserProvider';'./UserProvider';
+import { UserContext } from './UserProvider';
 import Home from './home';
 
 test('renders Title', () => {
@@ -27,12 +27,12 @@ describe('with a logged in user', () => {
   })
 
   test('shows the logout link', () => {
-    const { getByRole } = render(
+    render(
       <UserContext.Provider value={{ isLoggedIn: true, email: 'some@some.com'}}>
         <Home/>
       </UserContext.Provider>
     );
 
-    getByRole('button', { name: /logout/i });
+    screen.getByRole('button', { name: /logout/i });
   })
 })

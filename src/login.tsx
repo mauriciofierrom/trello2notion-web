@@ -21,7 +21,7 @@ const Login: React.FC = () => {
           // failed to start authentication
         }
       );
-  }, []);
+  }, [REACT_APP_BASE_URL]);
   return (
     <div className="column">
         <button onClick={startLogin}>Login</button>
