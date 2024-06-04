@@ -2,6 +2,7 @@ import React, { useCallback, useContext } from "react";
 import authgear from "@authgear/web";
 import { UserContext } from "./UserProvider";
 import Login from "./login";
+import { Link } from "react-router-dom";
 
 const Home: React.FC = () => {
   const { isLoggedIn, email } = useContext(UserContext);
@@ -37,7 +38,7 @@ const Home: React.FC = () => {
         <div className="column" />
         <div className="column">
           <i className="bi-markdown"></i>
-          <p>Markdown</p>
+          <Link to={`markdown`}>Markdown</Link>
         </div>
         <div className="column">
           <i className="bi-markdown"></i>

@@ -3,6 +3,7 @@ import UserContextProvider from "./UserProvider";
 import Home from "./home";
 import Root from "./root";
 import AuthRedirect from "./AuthRedirect";
+import { Markdown } from "./markdown";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
           <Route path="/auth-redirect" element={<AuthRedirect />} />
           <Route element={<Root />}>
             <Route path="/" element={<Home />}></Route>
+            <Route path="/markdown" element={<Markdown />}></Route>
           </Route>
         </Routes>
       </Router>
