@@ -8,7 +8,7 @@ interface UserContextValue {
 
 export const UserContext = createContext<UserContextValue>({
   isLoggedIn: false,
-  email: ""
+  email: "",
 });
 
 interface UserContextProviderProps {
@@ -19,7 +19,7 @@ const UserContextProvider: React.FC<UserContextProviderProps> = ({
   children,
 }) => {
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
-  const [email, setEmail] = useState<string>("")
+  const [email, setEmail] = useState<string>("");
 
   useEffect(() => {
     authgear.delegate = {
@@ -31,9 +31,9 @@ const UserContextProvider: React.FC<UserContextProviderProps> = ({
             authgear.fetchUserInfo().then((userInfo) => {
               console.log(userInfo);
               setEmail(userInfo.email || "");
-            })
-          } catch(e) {
-            console.log(e)
+            });
+          } catch (e) {
+            console.log(e);
           }
         } else {
           setIsLoggedIn(false);
@@ -45,7 +45,7 @@ const UserContextProvider: React.FC<UserContextProviderProps> = ({
   const contextValue = useMemo<UserContextValue>(() => {
     return {
       isLoggedIn,
-      email
+      email,
     };
   }, [isLoggedIn, email]);
 

@@ -1,6 +1,6 @@
 on:
   workflow_call:
-  
+
 jobs:
   Test:
     runs-on: ubuntu-latest
