@@ -1,7 +1,7 @@
 import React, { useState, ChangeEvent, FormEvent } from "react";
 import { UploadFormProps } from "./types";
 import { Errors } from "./errors";
-import authgear from "@authgear/web";
+import { fileUpload } from "./service";
 
 export const UploadForm: React.FC<UploadFormProps> = ({
   action,
@@ -12,7 +12,6 @@ export const UploadForm: React.FC<UploadFormProps> = ({
   const [file, setFile] = useState<File>();
   const [errors, setErrors] = useState<string[]>([]);
 
-  const URL = process.env.REACT_APP_ENTRYPOINT_URL || "http://localhost:8080";
   const MAX_FILE_SIZE = 10 * 1024 * 1024;
 
   function validateFile(file: File): string[] {
@@ -58,13 +57,10 @@ export const UploadForm: React.FC<UploadFormProps> = ({
       formData.append("method", action);
       formData.append("email", email);
 
-      await authgear.fetch(URL, {
-        method: "POST",
-        body: formData,
-      });
+      const response = await fileUpload(formData);
 
       setShowForm(false);
-      setResult({ ok: true, data: undefined });
+      setResult({ ok: true, data: response });
     } catch (e) {
       setShowForm(false);
       setResult({ ok: false, error: `${e}` });
