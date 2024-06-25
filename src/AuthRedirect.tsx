@@ -12,7 +12,21 @@ const AuthRedirect: React.FC = () => {
       try {
         await authgear.finishAuthentication();
       } finally {
+        if (authgear.accessToken) {
+          localStorage.setItem("t2n-token", authgear.accessToken);
+
+          const baseContainer = Object.getOwnPropertyDescriptor(
+            authgear,
+            "baseContainer",
+          )?.value;
+          localStorage.setItem(
+            "t2n-token-expire-at",
+            baseContainer.expireAt.toDateString(),
+          );
+        }
+
         navigate("/");
+
         usedToken.current = true;
       }
     }

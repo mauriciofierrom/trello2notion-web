@@ -21,26 +21,44 @@ const UserContextProvider: React.FC<UserContextProviderProps> = ({
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
   const [email, setEmail] = useState<string>("");
 
+  const onAuthentication = () => {
+    // Set as logged in
+    setIsLoggedIn(true);
+
+    // Get the user info on first load
+    try {
+      authgear.fetchUserInfo().then((userInfo) => {
+        console.log(userInfo);
+        setEmail(userInfo.email || "");
+      });
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
   useEffect(() => {
+    if (
+      !isLoggedIn &&
+      authgear.accessToken &&
+      authgear.sessionState === "AUTHENTICATED"
+    ) {
+      onAuthentication();
+    }
     authgear.delegate = {
       onSessionStateChange: (container) => {
         const sessionState = container.sessionState;
+
+        console.log(`onSessionStateChange: ${sessionState}`);
+
         if (sessionState === "AUTHENTICATED") {
-          setIsLoggedIn(true);
-          try {
-            authgear.fetchUserInfo().then((userInfo) => {
-              console.log(userInfo);
-              setEmail(userInfo.email || "");
-            });
-          } catch (e) {
-            console.log(e);
-          }
+          onAuthentication();
         } else {
+          console.log("changed to logged out");
           setIsLoggedIn(false);
         }
       },
     };
-  }, [setIsLoggedIn, setEmail]);
+  }, [setIsLoggedIn, setEmail, isLoggedIn]);
 
   const contextValue = useMemo<UserContextValue>(() => {
     return {
