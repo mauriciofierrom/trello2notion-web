@@ -8,7 +8,7 @@ import { UserContext } from "./UserProvider";
 export const Markdown: React.FC = () => {
   const { email } = useContext(UserContext);
   const [showForm, setShowForm] = useState<boolean>(true);
-  const [result, setResult] = useState<Result<void, string>>();
+  const [result, setResult] = useState<Result<Response, string>>();
 
   return (
     <div className="content">
