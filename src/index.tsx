@@ -7,6 +7,14 @@ import authgear from "@authgear/web";
 
 async function init() {
   try {
+    const token = localStorage.getItem("t2n-token");
+
+    if (!authgear.accessToken && token) {
+      console.log("Re-setting accessToken");
+      authgear.accessToken = token;
+    }
+
+    // When this is called the delegate isn't set so the change in session is not actionable
     await authgear.configure({
       endpoint: "https://trello2notion.authgear.cloud",
       clientID: "123f6884f558297e",
