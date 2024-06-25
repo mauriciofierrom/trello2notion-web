@@ -9,3 +9,14 @@ export const fileUpload = async (formData: FormData) => {
     body: formData,
   });
 };
+
+export const notionCode = async (code: string, email: string) => {
+  return authgear.fetch(ENTRY_POINT_URL, {
+    method: "POST",
+    body: JSON.stringify({ notionCode: code, email: email }),
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+  });
+};

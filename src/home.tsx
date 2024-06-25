@@ -19,7 +19,7 @@ const Home: React.FC = () => {
         },
         (err) => {
           console.error(err);
-        },
+        }
       );
   }, [REACT_APP_BASE_URL]);
 
@@ -42,7 +42,7 @@ const Home: React.FC = () => {
         </div>
         <div className="column">
           <i className="bi-markdown"></i>
-          <p>Notion</p>
+          <Link to={`notion`}>Notion</Link>
         </div>
         <div className="column" />
       </div>

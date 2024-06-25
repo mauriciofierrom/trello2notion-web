@@ -4,6 +4,7 @@ import Home from "./home";
 import Root from "./root";
 import AuthRedirect from "./AuthRedirect";
 import { Markdown } from "./markdown";
+import { Notion } from "./notion";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <Route element={<Root />}>
             <Route path="/" element={<Home />}></Route>
             <Route path="/markdown" element={<Markdown />}></Route>
+            <Route path="/notion" element={<Notion />}></Route>
           </Route>
         </Routes>
       </Router>
